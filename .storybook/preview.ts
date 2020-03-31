@@ -5,8 +5,6 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { withTheme } from './decorators/app';
 
-import '@static/styles/tailwind.css';
-
 // System-wide parameters that all stories will use.
 addParameters({
   options: {

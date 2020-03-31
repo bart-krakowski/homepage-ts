@@ -78,25 +78,6 @@ module.exports = {
       enforce: 'pre',
     });
 
-    // Add a rule to handle tailwind CSS.
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: [
-              require('postcss-import'),
-              require('tailwindcss'),
-              require('autoprefixer'),
-            ],
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    });
-
     return config;
   },
 };
