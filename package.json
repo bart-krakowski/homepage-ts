@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-wilde-creations",
+  "name": "bartloomiej-krakowski-homepage",
   "private": true,
-  "description": "Gatsby with Typescript, Storybook and Styled Components.",
+  "description": "",
   "version": "0.1.0",
-  "author": "George Wilde <george@wildecreations.co.uk>",
+  "author": "Bartłomiej Krakowski <bartlomiej@krakowski.website>",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
