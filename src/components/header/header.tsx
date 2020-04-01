@@ -1,12 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
 import {
   StyledHeader,
   StyledInner,
   StyledLink,
   StyledLogoText,
-} from './header.styled';
-import { SiteMetadataContext } from '@context/site-metadata';
+} from './header.styled'
+import { SiteMetadataContext } from '@context/site-metadata'
 
 export const Header: FC = () => (
   <SiteMetadataContext.Consumer>
@@ -22,4 +22,4 @@ export const Header: FC = () => (
       </StyledHeader>
     )}
   </SiteMetadataContext.Consumer>
-);
+)

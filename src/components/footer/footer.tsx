@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import { StyledFooter } from './footer.styled';
-import { SiteMetadataContext } from '@context/site-metadata';
+import { StyledFooter } from './footer.styled'
+import { SiteMetadataContext } from '@context/site-metadata'
 
 export const Footer: FC = () => (
   <SiteMetadataContext.Consumer>
@@ -24,4 +24,4 @@ export const Footer: FC = () => (
       </StyledFooter>
     )}
   </SiteMetadataContext.Consumer>
-);
+)

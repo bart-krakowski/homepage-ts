@@ -1,1 +1,1 @@
-export type buttonSizes = 'small' | 'default' | 'large' | 'xlarge';
+export type buttonSizes = 'small' | 'default' | 'large' | 'xlarge'

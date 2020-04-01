@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import { Helmet } from 'react-helmet';
-import { SiteMetadataContext } from '@context/site-metadata';
+import React, { FC } from 'react'
+import { Helmet } from 'react-helmet'
+import { SiteMetadataContext } from '@context/site-metadata'
 
 interface SEOProps {
   title: string;
@@ -18,7 +18,7 @@ export const SEO: FC<SEOProps> = ({
   return (
     <SiteMetadataContext.Consumer>
       {(siteMetadata): JSX.Element => {
-        const metaDescription = description || siteMetadata.description;
+        const metaDescription = description || siteMetadata.description
 
         return (
           <Helmet
@@ -62,8 +62,8 @@ export const SEO: FC<SEOProps> = ({
               },
             ].concat(meta)}
           />
-        );
+        )
       }}
     </SiteMetadataContext.Consumer>
-  );
+  )
 };
