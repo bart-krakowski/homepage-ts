@@ -1,13 +1,13 @@
 import { createContext } from 'react';
 
 export interface SiteMetadata {
-  companyName: string;
+  title: string;
   description: string;
   author: string;
 }
 
 const defaultState: SiteMetadata = {
-  companyName: '',
+  title: '',
   description: '',
   author: '',
 };

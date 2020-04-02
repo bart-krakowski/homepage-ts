@@ -8,7 +8,7 @@ export const Footer: FC = () => (
     {(siteMetadata): JSX.Element => (
       <StyledFooter>
         <div data-testid="copyright">
-          © {new Date().getFullYear()}, {siteMetadata.companyName}
+          © {new Date().getFullYear()}, {siteMetadata.title}
         </div>
         <div>
           Website created by{' '}

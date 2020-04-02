@@ -1,16 +1,8 @@
-/* eslint @typescript-eslint/camelcase: 0 */
-const companyName = 'Acme Co.';
-const shortName = 'Acme';
-const description = 'A description for your site';
-const author = 'Your Name';
-const primaryColor = '#663399';
+/* eslint-disable @typescript-eslint/camelcase */
+const siteMetadata = require('./siteMetadata')
 
 module.exports = {
-  siteMetadata: {
-    companyName: companyName,
-    description: description,
-    author: author,
-  },
+  siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -27,15 +19,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: companyName,
-        short_name: shortName,
+        name: siteMetadata.title,
+        short_name: siteMetadata.shortName,
         start_url: `/`,
-        background_color: primaryColor,
-        theme_color: primaryColor,
+        background_color: siteMetadata.primaryColor,
+        theme_color: siteMetadata.primaryColor,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
   ],
-};
+}

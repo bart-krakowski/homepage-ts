@@ -1,69 +1,130 @@
-import React, { FC } from 'react'
-import { Helmet } from 'react-helmet'
-import { SiteMetadataContext } from '@context/site-metadata'
+import { useStaticQuery, graphql } from "gatsby"
+import React from "react"
+import { Helmet } from "react-helmet"
 
-interface SEOProps {
-  title: string;
+type MetaItem = {
+  name: string;
+  content: string;
+};
+
+type SEOProps = {
+  title?: string;
   description?: string;
-  lang?: string;
-  meta?: any[];
-}
+  url?: string;
+  author?: string;
+  keywords?: string[];
+  meta?: MetaItem[];
+  image?: string;
+};
 
-export const SEO: FC<SEOProps> = ({
-  title,
-  description = '',
-  lang = 'en',
-  meta = [],
-}) => {
+const SEO: React.FC<SEOProps> = props => {
+  const data = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
+
+  const { siteMetadata } = data.site
+
+  const {
+    title,
+    description,
+    url,
+    author,
+    meta = [],
+    keywords = [],
+    image,
+  } = siteMetadata
+  const siteTitle = props.title || title
+  const siteDescription = props.description || description
+  const siteUrl = props.url || url
+  const siteAuthor = props.author || author
+  const siteImage = props.image || image
+  const siteKeywords = [...keywords, props.keywords].join(",")
+  const metaData = [
+    {
+      name: "canonical",
+      content: siteUrl,
+    },
+    {
+      name: "description",
+      content: siteDescription,
+    },
+    {
+      name: "image",
+      content: siteImage,
+    },
+    {
+      name: "og:url",
+      content: siteUrl,
+    },
+    {
+      name: "og:type",
+      content: "article",
+    },
+    {
+      name: "og:title",
+      content: siteTitle,
+    },
+    {
+      name: "og:description",
+      content: siteDescription,
+    },
+    {
+      name: "og:image",
+      content: siteImage,
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+    {
+      name: "twitter:creator",
+      content: siteAuthor,
+    },
+    {
+      name: "twitter:title",
+      content: siteTitle,
+    },
+    {
+      name: "twitter:description",
+      content: siteDescription,
+    },
+    {
+      name: "twitter:image",
+      content: siteImage,
+    },
+    {
+      name: "keywords",
+      content: siteKeywords,
+    },
+  ].concat(meta)
+
+  const linkData = [
+    {
+      rel: "shortcut icon",
+      href: "favicon.ico",
+    },
+    {
+      rel: "apple-touch-icon",
+      href: "icons/apple-touch-icon.png",
+    },
+  ]
   return (
-    <SiteMetadataContext.Consumer>
-      {(siteMetadata): JSX.Element => {
-        const metaDescription = description || siteMetadata.description
-
-        return (
-          <Helmet
-            htmlAttributes={{
-              lang,
-            }}
-            title={title}
-            titleTemplate={`%s | ${siteMetadata.companyName}`}
-            meta={[
-              {
-                name: `description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:title`,
-                content: title,
-              },
-              {
-                property: `og:description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary`,
-              },
-              {
-                name: `twitter:creator`,
-                content: siteMetadata.author,
-              },
-              {
-                name: `twitter:title`,
-                content: title,
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription,
-              },
-            ].concat(meta)}
-          />
-        )
-      }}
-    </SiteMetadataContext.Consumer>
+    <Helmet
+      htmlAttributes={{ lang: "en" }}
+      title={siteTitle}
+      titleTemplate={`%s | ${siteTitle}`}
+      meta={metaData}
+      link={linkData}
+    />
   )
 };
+
+export { SEO }
