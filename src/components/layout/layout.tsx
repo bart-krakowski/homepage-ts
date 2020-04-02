@@ -11,10 +11,8 @@ export const Layout: FC = ({ children }) => {
   return (
     <SiteMetadataContext.Provider value={siteMetadata}>
       <Header />
-      <div className="container mx-auto">
         <main>{children}</main>
-        <Footer />
-      </div>
+      <Footer />
     </SiteMetadataContext.Provider>
   )
 };
