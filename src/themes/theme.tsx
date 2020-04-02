@@ -27,4 +27,4 @@ export const Theme: FC<ThemeProps> = ({ theme, children }) => {
       {children}
     </ThemeProvider>
   )
-};
+}
