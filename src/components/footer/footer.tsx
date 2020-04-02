@@ -1,10 +1,9 @@
 import React, { FC } from 'react'
 
 import { StyledFooter } from './footer.styled'
-import { SiteMetadataContext } from '@context/site-metadata'
 
 export const Footer: FC = () => (
-  <SiteMetadataContext.Consumer>
+  <>
     {(siteMetadata): JSX.Element => (
       <StyledFooter>
         <div data-testid="copyright">
@@ -23,5 +22,5 @@ export const Footer: FC = () => (
         </div>
       </StyledFooter>
     )}
-  </SiteMetadataContext.Consumer>
+  </>
 )
