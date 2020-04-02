@@ -1,2 +1,1 @@
-export * from './available-themes';
-export * from './theme';
+export * from './theme'

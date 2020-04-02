@@ -1,3 +1,3 @@
 module.exports = function(plop) {
-  plop.load('./component-generator.js');
-};
+  plop.load('./component-generator.js')
+}

@@ -8,5 +8,5 @@ export default {
 }
 
 export const Default = () => (
-    <Footer />
+  <Footer />
 )

@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
-import fontFiles from './fonts-loader';
+import fontFiles from './fonts-loader'
 
 export const GlobalFonts = createGlobalStyle`
   @font-face {
@@ -30,4 +30,4 @@ export const GlobalFonts = createGlobalStyle`
     font-style: normal;
     src: url(${fontFiles.MontserratBold}) format('truetype');
   }
-`;
+`

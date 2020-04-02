@@ -1,7 +1,7 @@
-const { inputRequired } = require('./utils');
+const { inputRequired } = require('./utils')
 
 module.exports = function(plop) {
-  const baseUrl = '../src/components';
+  const baseUrl = '../src/components'
 
   plop.setGenerator('component', {
     description: 'component',
@@ -56,14 +56,14 @@ module.exports = function(plop) {
           path: `${baseUrl}/{{lowerCase name}}/index.ts`,
           templateFile: 'templates/component/index.hbs',
         },
-      ];
+      ]
 
       if (data.files.includes('styles')) {
         actions.push({
           type: 'add',
           path: `${baseUrl}/{{lowerCase name}}/{{lowerCase name}}.styled.tsx`,
           templateFile: 'templates/component/styled.hbs',
-        });
+        })
       }
 
       if (data.files.includes('test')) {
@@ -71,7 +71,7 @@ module.exports = function(plop) {
           type: 'add',
           path: `${baseUrl}/{{lowerCase name}}/{{lowerCase name}}.test.tsx`,
           templateFile: 'templates/component/test.hbs',
-        });
+        })
       }
 
       if (data.files.includes('stories')) {
@@ -79,10 +79,10 @@ module.exports = function(plop) {
           type: 'add',
           path: `${baseUrl}/{{lowerCase name}}/{{lowerCase name}}.stories.tsx`,
           templateFile: 'templates/component/stories.hbs',
-        });
+        })
       }
 
-      return actions;
+      return actions
     },
-  });
-};
+  })
+}

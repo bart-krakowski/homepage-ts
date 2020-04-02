@@ -1,5 +1,5 @@
 const inputRequired = name => {
-  return value => (/.+/.test(value) ? true : `${name} is required`);
-};
+  return value => (/.+/.test(value) ? true : `${name} is required`)
+}
 
-module.exports = { inputRequired };
+module.exports = { inputRequired }
