@@ -12,7 +12,6 @@ export const Header: FC = () => (
     <StyledInner className="container">
       <StyledLogoText>
         <StyledLink to="/" data-testid="siteTitle">
-          {siteMetadata.title}
         </StyledLink>
       </StyledLogoText>
     </StyledInner>
