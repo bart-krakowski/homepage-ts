@@ -89,7 +89,15 @@
           {
             "pattern": "@themes",
             "group": "sibling"
-          }
+          },
+          {
+            "pattern": "@layout/**",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@layout",
+            "group": "sibling"
+          },
         ]
       }
     ]

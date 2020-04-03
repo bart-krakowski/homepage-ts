@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
+import React, { FC } from 'react'
 
-import { Layout } from '@components/layout';
-import { SEO } from '@components/seo';
+import { Layout } from '@layout'
+import { SEO } from '@components/seo'
 
 const IndexPage: FC = () => (
   <Layout>
@@ -26,6 +26,6 @@ const IndexPage: FC = () => (
       for all the details.
     </p>
   </Layout>
-);
+)
 
-export default IndexPage;
+export default IndexPage

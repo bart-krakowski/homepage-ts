@@ -23,6 +23,8 @@ module.exports = {
     '^@mocks$': `<rootDir>/__mocks__/`,
     '^@themes/(.*)$': `<rootDir>/src/themes/$1`,
     '^@themes$': `<rootDir>/src/themes/`,
+    '^@layout/(.*)$': `<rootDir>/src/layout/$1`,
+    '^@layout$': `<rootDir>/src/layout/`,
   },
   globals: {
     __PATH_PREFIX__: ``,

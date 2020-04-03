@@ -1,8 +1,8 @@
-import { Link } from 'gatsby';
-import React, { FC } from 'react';
+import { Layout } from '@layout'
+import { Link } from 'gatsby'
+import React, { FC } from 'react'
 
-import { Layout } from '@components/layout';
-import { SEO } from '@components/seo';
+import { SEO } from '@components/seo'
 
 const SecondPage: FC = () => (
   <Layout>
@@ -11,6 +11,6 @@ const SecondPage: FC = () => (
     <p>Welcome to page 2</p>
     <Link to="/">Go back to the homepage</Link>
   </Layout>
-);
+)
 
-export default SecondPage;
+export default SecondPage
