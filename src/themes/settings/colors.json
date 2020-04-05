@@ -1,17 +1,11 @@
 {
-  "white": "#ffffff",
-  "black": "#000000",
+  "neutral": "#ffffff",
+  "background": "#1A1C1D",
+  "border": "string",
+  "text": "string",
+  "link": "string",
+  "linkHover": "string",
   "primary": "#53bd95",
-  "primaryLight": "#e3f4ee",
-  "primaryDark": "#329e7e",
-  "secondary": "#252e4f",
-  "gray": "#a9aec5",
-  "grayLight": "#f5f6fb",
-  "grayLighter": "#dcdde3",
-  "graySemiDark": "#dee1ed",
-  "grayDark": "#737a96",
-  "violet": "#6152bd",
-  "violetLight": "#e6e3f4",
-  "blue": "#4b98ff",
-  "blueLight": "#e2eeff"
+  "secondary": "string",
+  "tertiary": "string"
 }
