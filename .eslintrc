@@ -75,6 +75,14 @@
             "group": "sibling"
           },
           {
+            "pattern": "@helpers/**",
+            "group": "sibling"
+          },
+          {
+            "pattern": "@helpers",
+            "group": "sibling"
+          },
+          {
             "pattern": "@mocks/**",
             "group": "sibling"
           },

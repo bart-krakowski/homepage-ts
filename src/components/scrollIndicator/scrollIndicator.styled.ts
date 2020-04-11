@@ -7,17 +7,17 @@ type ScrollBarProps = {
 const Wrapper = styled.div`
   position: fixed;
   right: 35px;
-  bottom: 30px;
+  top: 30px;
   z-index: 1;
   width: 2px;
   height: 150px;
-  background-color: ${({theme}) => theme.colors.neutral};
+  background-color: ${({ theme }) => theme.colors.neutral};
 `
 
 const ScrollBar = styled.div<ScrollBarProps>`
   width: 100%;
   height: ${({ height}) => height};
-  background-color: ${({theme}) => theme.colors.background};
+  background-color: red;
 `
 
 export { Wrapper, ScrollBar }

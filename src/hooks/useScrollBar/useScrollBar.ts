@@ -4,59 +4,40 @@ import { useState, useEffect, RefObject } from 'react'
 export const useScrollBar = (scrollBar: RefObject<HTMLDivElement>, scrollBarWrapper: RefObject<HTMLDivElement>) => {
   const [scrollbarHeight, setScrollbarHeight] = useState<string>('0')
   let windowHeight = window.innerHeight
-  let documentHeight = document.documentElement.scrollHeight
+  let documentHeight = document.documentElement.offsetHeight
 
   const scrollBarElement = scrollBar ? scrollBar.current : null
-  const scrollBarWrapperElement = scrollBarWrapper ? scrollBarWrapper.current : null
 
-  let scrollTop = 0
-  const proxyTween = gsap.to({defaults: {ease: 'power3.inOut'}}, 1, {paused: true})
-  const timeline = gsap.timeline({ paused: true })
+  let scrollTween = gsap.to(scrollBarElement, {
+    yPercent: 0,
+    ease: "none",
+    paused: true,
+  })
 
-  const scrollHandler = () => {
-    scrollTop = window.scrollY
-    const scrollPercent = Math.max(
-      scrollTop / (documentHeight - windowHeight),
-      0
-    )
-
-    proxyTween.progress(scrollPercent).pause() 
+  const updateScrollBar = () => {
+    console.log('scrollY / (document.body.scrollHeight - innerHeight)', scrollY / (document.body.scrollHeight - innerHeight))
+    scrollTween.progress(scrollY / (document.body.scrollHeight - innerHeight))
   }
 
-  const tickHandler = () => {
-    let progress = timeline.progress()
-    progress += (proxyTween.progress() - progress) * 0.1
-    timeline.progress(progress)
-  }
-  
-  gsap.ticker.add(tickHandler)
-
-  const test = () => {
-    if (scrollBarElement && scrollBarWrapperElement) {
-      timeline.to(scrollBarElement, 2, {
-        y: scrollBarWrapperElement.scrollHeight - scrollBarElement.scrollHeight
-      })
-    }
-  }
-
-  const scrollbarHeightHandler = () => {
+  const setBarHeight = () => {
     windowHeight = window.innerHeight
-    documentHeight = document.documentElement.scrollHeight
+    documentHeight = document.documentElement.offsetHeight
 
     setScrollbarHeight(`${(windowHeight / documentHeight * 100)}%`)
+    const percentage = scrollBarElement ? Math.abs(((150/scrollBarElement.offsetHeight) - 1) * 100) : 0
+    scrollTween = gsap.to(scrollBarElement, {
+      yPercent: percentage, 
+      ease: "none", 
+      paused: true,
+    })
   }
 
   useEffect(() => {
-    scrollbarHeightHandler()
-    test()
+    setBarHeight()
 
-    window.addEventListener('resize', (): void => {
-      scrollbarHeightHandler()
-    })
-
-    window.addEventListener('scroll', (): void => {
-      scrollHandler()
-    })
+    window.addEventListener('resize', updateScrollBar)
+    window.addEventListener('resize', setBarHeight)
+    window.addEventListener('scroll', updateScrollBar)
   })
 
   return { scrollbarHeight }

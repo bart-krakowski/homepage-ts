@@ -19,6 +19,8 @@ module.exports = {
     '^@context/(.*)$': `<rootDir>/src/context/$1`,
     '^@hooks/(.*)$': `<rootDir>/src/hooks/$1`,
     '^@hooks$': `<rootDir>/src/hooks/`,
+    '^@helpers/(.*)$': `<rootDir>/src/helpers/$1`,
+    '^@helpers$': `<rootDir>/src/helpers/`,
     '^@mocks/(.*)$': `<rootDir>/__mocks__/$1`,
     '^@mocks$': `<rootDir>/__mocks__/`,
     '^@themes/(.*)$': `<rootDir>/src/themes/$1`,
