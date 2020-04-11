@@ -6,8 +6,8 @@ type ScrollBarProps = {
 
 const Wrapper = styled.div`
   position: fixed;
-  right: 35px;
   top: 30px;
+  right: 35px;
   z-index: 1;
   width: 2px;
   height: 150px;
